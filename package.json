@@ -1,0 +1,20 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "like_button.js",
+  "scripts": {
+    "server": "npx live-server",
+    "jsx": "npx babel --watch src --out-dir . --presets react-app/prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

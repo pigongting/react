@@ -1,35 +1,32 @@
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { error: null, errorInfo: null };
+    this.state = { hasError: false };
   }
-  
-  componentDidCatch(error, errorInfo) {
-    // Catch errors in any components below and re-render with error message
-    this.setState({
-      error: error,
-      errorInfo: errorInfo
-    })
-    // You can also log error messages to an error reporting service here
+
+  static getDerivedStateFromError(error) {
+    // console.log('getDerivedStateFromError');
+    // console.log(error);
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
   }
-  
+
+  componentDidCatch(error, info, aaa) {
+    // console.log('componentDidCatch');
+    // console.log(error);
+    // console.log('componentDidCatch');
+    // console.log(info);
+    // You can also log the error to an error reporting service
+  }
+
   render() {
-    if (this.state.errorInfo) {
-      // Error path
-      return (
-        <div>
-          <h2>Something went wrong.</h2>
-          <details style={{ whiteSpace: 'pre-wrap' }}>
-            {this.state.error && this.state.error.toString()}
-            <br />
-            {this.state.errorInfo.componentStack}
-          </details>
-        </div>
-      );
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
     }
-    // Normally, just render children
-    return this.props.children;
-  }  
+
+    return this.props.children; 
+  }
 }
 
 class BuggyCounter extends React.Component {

@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-react-jsx-source": "^6.22.0",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "uglify-js-brunch": "^2.10.0"
   }
 }
